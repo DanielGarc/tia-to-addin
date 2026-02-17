@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <TIA_LIB_DIR Condition="'$(TIA_LIB_DIR)' == ''">C:\Program Files\Siemens\Automation\Portal V18\PublicAPI\V18</TIA_LIB_DIR>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TiaAddin.Core\TiaAddin.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AddIn">
+      <HintPath>$(TIA_LIB_DIR)\AddIn.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Siemens.Engineering">
+      <HintPath>$(TIA_LIB_DIR)\Siemens.Engineering.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
