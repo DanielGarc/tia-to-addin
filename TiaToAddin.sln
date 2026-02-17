@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaAddin.Core", "src\TiaAddin.Core\TiaAddin.Core.csproj", "{9A8D1D15-9D4D-4E2B-BF9C-9C4CA9C8D8A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaAddin.TiaHost", "src\TiaAddin.TiaHost\TiaAddin.TiaHost.csproj", "{C9F8E1B5-7E0A-4FEA-8CF1-CA8FBB6BEA3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiaAddin.Core.Tests", "tests\TiaAddin.Core.Tests\TiaAddin.Core.Tests.csproj", "{B5C3E19A-1F45-4E8D-8E39-2D1E9E7A1A0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A8D1D15-9D4D-4E2B-BF9C-9C4CA9C8D8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A8D1D15-9D4D-4E2B-BF9C-9C4CA9C8D8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A8D1D15-9D4D-4E2B-BF9C-9C4CA9C8D8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A8D1D15-9D4D-4E2B-BF9C-9C4CA9C8D8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F8E1B5-7E0A-4FEA-8CF1-CA8FBB6BEA3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F8E1B5-7E0A-4FEA-8CF1-CA8FBB6BEA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F8E1B5-7E0A-4FEA-8CF1-CA8FBB6BEA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F8E1B5-7E0A-4FEA-8CF1-CA8FBB6BEA3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C3E19A-1F45-4E8D-8E39-2D1E9E7A1A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C3E19A-1F45-4E8D-8E39-2D1E9E7A1A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C3E19A-1F45-4E8D-8E39-2D1E9E7A1A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C3E19A-1F45-4E8D-8E39-2D1E9E7A1A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
