@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AddIn>
+  <Id>__ADDIN_ID__</Id>
+  <Title>__ADDIN_TITLE__</Title>
+  <Version>__ADDIN_VERSION__</Version>
+  <Description>__DESCRIPTION__</Description>
+  <Assembly>__ASSEMBLY_FILE__</Assembly>
+  <EntryClass>__ENTRY_CLASS__</EntryClass>
+</AddIn>

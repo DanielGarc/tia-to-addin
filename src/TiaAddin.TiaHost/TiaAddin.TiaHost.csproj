@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <AssemblyName>TiaToAddin</AssemblyName>
+    <RootNamespace>TiaAddin.TiaHost</RootNamespace>
+
+    <!-- Adjust for your installed TIA version -->
+    <TIA_LIB_DIR Condition="'$(TIA_LIB_DIR)' == ''">C:\Program Files\Siemens\Automation\Portal V18\PublicAPI\V18</TIA_LIB_DIR>
+
+    <!-- Add-in metadata -->
+    <AddinId Condition="'$(AddinId)' == ''">TIA_TO_Addin</AddinId>
+    <AddinTitle Condition="'$(AddinTitle)' == ''">TIA TO Addin</AddinTitle>
+    <AddinVersion Condition="'$(AddinVersion)' == ''">1.0.0</AddinVersion>
+    <AddinOutputDir>$(OutputPath)AddinPackage\</AddinOutputDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TiaAddin.Core\TiaAddin.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AddIn">
+      <HintPath>$(TIA_LIB_DIR)\AddIn.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Siemens.Engineering">
+      <HintPath>$(TIA_LIB_DIR)\Siemens.Engineering.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="AddinTemplate.addin" />
+  </ItemGroup>
+
+  <Target Name="GenerateAddinPackage" AfterTargets="Build">
+    <MakeDir Directories="$(AddinOutputDir)" />
+
+    <ReadLinesFromFile File="$(MSBuildProjectDirectory)\AddinTemplate.addin">
+      <Output TaskParameter="Lines" ItemName="_AddinTemplateLines" />
+    </ReadLinesFromFile>
+
+    <ItemGroup>
+      <_AddinManifestLines Include="@(_AddinTemplateLines->Replace('__ADDIN_ID__','$(AddinId)')->Replace('__ADDIN_TITLE__','$(AddinTitle)')->Replace('__ADDIN_VERSION__','$(AddinVersion)')->Replace('__ASSEMBLY_FILE__','$(AssemblyName).dll')->Replace('__ENTRY_CLASS__','TiaAddin.TiaHost.TiaAddinBootstrap')->Replace('__DESCRIPTION__','Technological Object batch tooling add-in'))" />
+    </ItemGroup>
+
+    <WriteLinesToFile
+      File="$(AddinOutputDir)$(AssemblyName).addin"
+      Lines="@(_AddinManifestLines)"
+      Overwrite="true" />
+
+    <Copy
+      SourceFiles="$(TargetPath)"
+      DestinationFolder="$(AddinOutputDir)"
+      SkipUnchangedFiles="true" />
+  </Target>
+</Project>
